@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>書目管理</title>
+<link type="text/css" rel="stylesheet" href="/static/css/style.css" >
+<script src="/static/script/jquery-1.7.2.js"></script>
+<script>
+	$(function(){
+		$(".deleteBook").click(function(){
+			var title = $(this).attr("id");
+			// var flag = confirm("確定要刪除『"+title+"』?");
+			// if (!flag){
+			// 	return false;
+			// }
+			return confirm("確定要刪除【"+title+"】嗎")
+		});
+	});
+</script>
+</head>
+<body>
+	
+	<div id="header">
+			<img class="logo_img" alt="" src="/static/img/logo.gif" >
+			<span class="wel_word">管理系統</span>
+			<div>
+				<a href="/getPaginatedBooks">書目管理</a>&nbsp;&nbsp;
+				<a href="/getOrders">訂單管理</a>&nbsp;&nbsp;
+				<a href="/main">返回主頁</a>
+			</div>
+	</div>
+	
+	<div id="main">
+		<table>
+			<tr>
+				<td>書名</td>
+				<td>價格</td>
+				<td>作者</td>
+				<td>銷量</td>
+				<td>庫存</td>
+				<td colspan="2">管理</td>
+			</tr>
+			{{range .Books}}		
+			<tr>
+				<td>{{.Title}}</td>
+				<td>{{.Price}}</td>
+				<td>{{.Author}}</td>
+				<td>{{.Sales}}</td>
+				<td>{{.Stock}}</td>
+				<td><a href="editBook?bookID={{.ID}}">修改</a></td>
+				<td><a id="{{.Title}}" class="deleteBook" href="deleteBook?bookID={{.ID}}">刪除</a></td>
+			</tr>	
+			{{end}}
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td><a href="/editBook">添加書目</a></td>
+			</tr>	
+		</table>
+		<div id="page_nav">
+			{{if .HasPreviousPage}}
+				<a href="getPaginatedBooks">首頁</a>
+				<a href="getPaginatedBooks?pageNo={{.GetPreviousPageNo}}">上一頁</a>
+			{{end}}
+				當前為第{{.PageNo}}頁，共{{.TotalPageNo}}頁，{{.TotalRecordCount}}筆商品
+			{{if .HasNextPage}}
+				<a href="getPaginatedBooks?pageNo={{.GetNextPageNo}}">下一頁</a>
+				<a href="getPaginatedBooks?pageNo={{.TotalPageNo}}">尾頁</a>
+			{{end}}
+			 	到第<input value="{{.PageNo}}" name="pn" id="pn_input"/>頁
+				<input type="button" value="确定" id="sub">
+				<script>
+					$("#sub").click(function(){
+						var pageNo = $("#pn_input").val();
+						location = "/getPaginatedBooks?pageNo="+pageNo
+					});
+			</script>
+		</div>
+
+	</div>
+	
+	<div id="bottom">
+		<span>
+			Copyright &copy; 2024 palebluedot4
+		</span>
+	</div>
+</body>
+</html>

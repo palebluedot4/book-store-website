@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Bruce Bookstore會員註冊頁面</title>
+<link type="text/css" rel="stylesheet" href="/static/css/style.css" >
+<style type="text/css">
+	.login_form{
+		height:420px;
+		margin-top: 25px;
+	}
+	
+</style>
+<script src="/static/script/jquery-1.7.2.js"></script>
+<script>
+	$(function(){
+		$("#sub_btn").click(function(){
+			var username = $("#username").val();
+			var usernameReg = /^[a-zA-Z0-9_-]{3,16}$/;
+			var flag = usernameReg.test(username);
+			if(!flag){
+				alert("請輸入3-16位的字母、數字、底線或減號的帳號！");
+				return false;
+			}
+			var password = $("#password").val();
+			var passwordReg = /^[a-zA-Z0-9_-]{6,18}$/;
+			if(!passwordReg.test(password)){
+				alert("請輸入6-18位的字母、數字、底線或減號的密碼！")
+				return false;
+			}
+			var repwd = $("#repwd").val();
+			if(repwd == ""){
+				alert("確認密碼不能為空！");
+				return false;
+			}
+			if(repwd != password){
+				$("#repwd").val("");
+				alert("兩次輸入的密碼不一致！");
+				return false;
+			}
+			var email = $("#email").val();
+			var emailReg = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+			if(!emailReg.test(email)){
+				alert("email格式不正確！");
+				return false;
+			}
+
+		});
+		$("#msg").hide();
+		if("{{.}}"=="帳號名已存在"){
+			$("#msg").show();
+		}
+		$("#username").change(function(){
+			var username = $(this).val();
+			var url = "/checkUserName";
+			var param = {"username":username};
+			$.post(url,param,function(res){
+				$("#msg").show();
+				$("#msg").html(res);
+			});
+		});
+	});
+</script>
+</head>
+<body>
+		<div id="login_header">
+			<img class="logo_img" alt="" src="/static/img/logo.gif" >
+		</div>
+		
+			<div class="login_banner">
+			
+				<div id="l_content">
+					<span class="login_word">歡迎註冊</span>
+				</div>
+				
+				<div id="content">
+					<div class="login_form">
+						<div class="login_box">
+							<div class="tit">
+								<h1>Bruce Bookstore會員</h1>
+								<span class="errorMsg" id="msg">{{.}}</span>
+							</div>
+							<br>
+							<div class="form">
+								<form action="/register" method="POST">
+									<label>帳號名稱：</label>
+									<input class="itxt" type="text" placeholder="請輸入帳號" autocomplete="off" tabindex="1" name="username" id="username" />
+									<br />
+									<br />
+									<label>會員密碼：</label>
+									<input class="itxt" type="password" placeholder="請輸入密碼" autocomplete="off" tabindex="1" name="password" id="password" />
+									<br />
+									<br />
+									<label>確認密碼：</label>
+									<input class="itxt" type="password" placeholder="再次輸入密碼" autocomplete="off" tabindex="1" name="repwd" id="repwd" />
+									<br />
+									<br />
+									<label>電子信箱：</label>
+									<input class="itxt" type="text" placeholder="請輸入電子信箱地址" autocomplete="off" tabindex="1" name="email" id="email" />
+									<br />
+									<br />
+									<br />
+									<input type="submit" value="註冊" id="sub_btn" />
+								</form>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		<div id="bottom">
+			<span>
+				Copyright &copy; 2024 palebluedot4
+			</span>
+		</div>
+</body>
+</html>

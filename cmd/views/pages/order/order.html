@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>訂單管理</title>
+<link type="text/css" rel="stylesheet" href="/static/css/style.css" >
+<style type="text/css">
+	h1 {
+		text-align: center;
+		margin-top: 200px;
+	}
+</style>
+</head>
+<body>
+	
+	<div id="header">
+			<img class="logo_img" alt="" src="/static/img/logo.gif" >
+			<span class="wel_word">我的訂單</span>
+			<div>
+				<span>歡迎<span class="um_span">{{.Username}}</span>光臨&nbsp;Bruce Bookstore</span>
+				<a href="/getMyOrders">我的訂單</a>&nbsp;&nbsp;
+				<a href="/logout">登出</a>&nbsp;&nbsp;
+				<a href="/main">返回主頁</a>
+			</div>
+	</div>
+	
+	<div id="main">
+		<table>
+			<tr>
+				<th>訂單編號</th>
+				<th>日期</th>
+				<th>數量</th>
+				<th>金額</th>
+				<th>明細</th>
+				<th>配送</th>
+			</tr>		
+		{{range .Orders}}
+			<tr>
+				<td>{{.OrderID}}</td>
+				<td>{{.CreateTime}}</td>
+				<td>{{.TotalCount}}</td>
+				<td>{{.TotalAmount}}</td>
+				<td><a href="/getOrderInfo?orderID={{.OrderID}}">查看明細</a></td>
+				<td class="state">
+					{{if .PendingShipping}}
+						等待配送
+					{{end}}
+					{{if .OrderShipped}}
+						<a href="/receiveOrder?orderID={{.OrderID}}">確認取貨</a>
+					{{end}}
+					{{if .OrderReceived}}
+						交易完成
+					{{end}}
+				</td>
+			</tr>
+		{{end}}		
+		</table>
+	</div>
+	
+	<div id="bottom">
+		<span>
+			Copyright &copy; 2024 palebluedot4
+		</span>
+	</div>
+</body>
+</html>

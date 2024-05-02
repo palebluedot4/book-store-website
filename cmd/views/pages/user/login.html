@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Bruce Bookstore會員登入頁面</title>
+<link type="text/css" rel="stylesheet" href="/static/css/style.css" >
+<!--import jquery.js -->
+<script type="text/javascript" src="/static/script/jquery-1.7.2.js"></script>
+<script>
+	$(function(){
+		$("#sub_btn").click(function(){
+			var username = $("#username").val();
+			if(username == ""){
+				alert("帳號不能為空！");
+				return false;
+			}
+			var password = $("#password").val();
+			if(password == ""){
+				alert("密碼不能為空！");
+				return false;
+			}
+		});
+		if("{{.}}"=="帳號或密碼不正確"){
+			$("#msg").text("帳號或密碼不正確");
+		}
+	});
+</script>
+</head>
+<body>
+		<div id="login_header">
+			<img class="logo_img" alt="" src="/static/img/logo.gif" >
+		</div>
+		
+			<div class="login_banner">
+			
+				<div id="l_content">
+					<span class="login_word">歡迎登入</span>
+				</div>
+				
+				<div id="content">
+					<div class="login_form">
+						<div class="login_box">
+							<div class="tit">
+								<h1>Bruce Bookstore會員</h1>
+								<a href="/pages/user/register.html">註冊會員</a>
+							</div>
+							<div class="msg_cont">
+								<b></b>
+								<span class="errorMsg" id="msg">登入會員</span>
+							</div>
+							<div class="form">
+								<form action="/login" method="POST">
+									<label>帳號：</label>
+									<input class="itxt" type="text" placeholder="請輸入帳號" autocomplete="off" tabindex="1" name="username" id="username"/>
+									<br />
+									<br />
+									<label>密碼：</label>
+									<input class="itxt" type="password" placeholder="請輸入密碼" autocomplete="off" tabindex="1" name="password" id="password"/>
+									<br />
+									<br />
+									<br />
+									<input type="submit" value="登入" id="sub_btn" />
+								</form>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		<div id="bottom">
+			<span>
+				Copyright &copy; 2024 palebluedot4
+			</span>
+		</div>
+</body>
+</html>
