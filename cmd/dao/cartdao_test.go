@@ -1,16 +1,17 @@
 package dao
 
 import (
-	"bookstore/cmd/model"
 	"fmt"
 	"testing"
+
+	"bookstore/cmd/model"
 )
 
 func TestCart(t *testing.T) {
-	// t.Run("Add cart validation", testAddCart)
-	// t.Run("Get cart by user ID validation", testGetCartByUserID)
-	// t.Run("Update cart validation", testUpdateCart)
-	// t.Run("Delete cart by cart ID validation", testDeleteCartByCartID)
+	t.Run("Add cart validation", testAddCart)
+	t.Run("Get cart by user ID validation", testGetCartByUserID)
+	t.Run("Update cart validation", testUpdateCart)
+	t.Run("Delete cart by cart ID validation", testDeleteCartByCartID)
 }
 
 func testAddCart(t *testing.T) {

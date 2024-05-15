@@ -1,9 +1,10 @@
 package main
 
 import (
-	"bookstore/cmd/controller"
 	"log"
 	"net/http"
+
+	"bookstore/cmd/controller"
 )
 
 func main() {

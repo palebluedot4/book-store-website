@@ -1,17 +1,18 @@
 package dao
 
 import (
-	"bookstore/cmd/model"
 	"fmt"
 	"testing"
 	"time"
+
+	"bookstore/cmd/model"
 )
 
 func TestOrder(t *testing.T) {
-	// t.Run("Add order validation", testAddOrder)
-	// t.Run("Get orders validation", testGetOrders)
-	// t.Run("Get my orders validation", testGetMyOrders)
-	// t.Run("Update order status validation", testUpdateOrderStatus)
+	t.Run("Add order validation", testAddOrder)
+	t.Run("Get orders validation", testGetOrders)
+	t.Run("Get my orders validation", testGetMyOrders)
+	t.Run("Update order status validation", testUpdateOrderStatus)
 }
 
 func testAddOrder(t *testing.T) {

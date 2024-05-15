@@ -1,11 +1,12 @@
 package dao
 
 import (
-	"bookstore/cmd/model"
-	"bookstore/cmd/utils"
 	"database/sql"
 	"fmt"
 	"net/http"
+
+	"bookstore/cmd/model"
+	"bookstore/cmd/utils"
 )
 
 func CreateSession(session *model.Session) error {

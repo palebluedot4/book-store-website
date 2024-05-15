@@ -1,14 +1,15 @@
 package controller
 
 import (
-	"bookstore/cmd/dao"
-	"bookstore/cmd/model"
 	"html/template"
 	"log"
 	"net/http"
 	"time"
 
 	"github.com/google/uuid"
+
+	"bookstore/cmd/dao"
+	"bookstore/cmd/model"
 )
 
 func CheckoutHandler(w http.ResponseWriter, r *http.Request) {

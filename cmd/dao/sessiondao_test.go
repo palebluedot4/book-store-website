@@ -1,18 +1,19 @@
 package dao
 
 import (
-	"bookstore/cmd/model"
 	"fmt"
 	"net/http"
 	"net/http/httptest"
 	"testing"
+
+	"bookstore/cmd/model"
 )
 
 func TestSession(t *testing.T) {
-	// t.Run("Create session validation", testCreateSession)
-	// t.Run("Delete session validation", testDeleteSession)
-	// t.Run("Get session by ID validation", testGetSessionByID)
-	// t.Run("Is logged in validation", testIsLoggedIn)
+	t.Run("Create session validation", testCreateSession)
+	t.Run("Delete session validation", testDeleteSession)
+	t.Run("Get session by ID validation", testGetSessionByID)
+	t.Run("Is logged in validation", testIsLoggedIn)
 }
 
 func testCreateSession(t *testing.T) {

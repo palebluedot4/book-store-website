@@ -1,19 +1,20 @@
 package dao
 
 import (
-	"bookstore/cmd/model"
 	"fmt"
 	"testing"
+
+	"bookstore/cmd/model"
 )
 
 func TestBook(t *testing.T) {
-	// t.Run("Get books validation", testGetBooks)
-	// t.Run("Add book validation", testAddBook)
-	// t.Run("Delete book validation", testDeleteBook)
-	// t.Run("Get book by ID validation", testGetBookByID)
-	// t.Run("Update book validation", testUpdateBook)
-	// t.Run("Get paginated books validation", testGetPaginatedBooks)
-	// t.Run("Fetch books by price range validation", testFetchBooksByPriceRange)
+	t.Run("Get books validation", testGetBooks)
+	t.Run("Add book validation", testAddBook)
+	t.Run("Delete book validation", testDeleteBook)
+	t.Run("Get book by ID validation", testGetBookByID)
+	t.Run("Update book validation", testUpdateBook)
+	t.Run("Get paginated books validation", testGetPaginatedBooks)
+	t.Run("Fetch books by price range validation", testFetchBooksByPriceRange)
 }
 
 func testGetBooks(t *testing.T) {

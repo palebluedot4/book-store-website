@@ -1,13 +1,14 @@
 package controller
 
 import (
-	"bookstore/cmd/dao"
-	"bookstore/cmd/model"
 	"html/template"
 	"log"
 	"net/http"
 
 	"github.com/google/uuid"
+
+	"bookstore/cmd/dao"
+	"bookstore/cmd/model"
 )
 
 func LoginHandler(w http.ResponseWriter, r *http.Request) {

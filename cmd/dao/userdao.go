@@ -1,12 +1,13 @@
 package dao
 
 import (
-	"bookstore/cmd/model"
-	"bookstore/cmd/utils"
 	"database/sql"
 	"fmt"
 
 	"golang.org/x/crypto/bcrypt"
+
+	"bookstore/cmd/model"
+	"bookstore/cmd/utils"
 )
 
 func GetUserByUsernameAndPassword(username, password string) (*model.User, error) {

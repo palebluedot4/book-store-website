@@ -6,9 +6,9 @@ import (
 )
 
 func TestUser(t *testing.T) {
-	// t.Run("Login validation", testLogin)
-	// t.Run("Register validation", testRegister)
-	// t.Run("Save user validation", testSave)
+	t.Run("Login validation", testLogin)
+	t.Run("Register validation", testRegister)
+	t.Run("Save user validation", testSave)
 }
 
 func testLogin(t *testing.T) {

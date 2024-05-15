@@ -1,12 +1,13 @@
 package controller
 
 import (
-	"bookstore/cmd/dao"
-	"bookstore/cmd/model"
 	"html/template"
 	"log"
 	"net/http"
 	"strconv"
+
+	"bookstore/cmd/dao"
+	"bookstore/cmd/model"
 )
 
 // func IndexHandler(w http.ResponseWriter, r *http.Request) {

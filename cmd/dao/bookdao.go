@@ -1,11 +1,12 @@
 package dao
 
 import (
-	"bookstore/cmd/model"
-	"bookstore/cmd/utils"
 	"database/sql"
 	"fmt"
 	"strconv"
+
+	"bookstore/cmd/model"
+	"bookstore/cmd/utils"
 )
 
 func GetBooks() ([]*model.Book, error) {

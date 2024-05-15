@@ -1,13 +1,14 @@
 package dao
 
 import (
-	"bookstore/cmd/model"
 	"fmt"
 	"testing"
+
+	"bookstore/cmd/model"
 )
 
 func TestOrderItem(t *testing.T) {
-	// t.Run("Add order item validation", testAddOrderItem)
+	t.Run("Add order item validation", testAddOrderItem)
 	t.Run("Get order items by order ID validation", testGetOrderItemsByOrderID)
 }
 

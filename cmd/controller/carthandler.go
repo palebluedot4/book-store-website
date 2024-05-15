@@ -1,8 +1,6 @@
 package controller
 
 import (
-	"bookstore/cmd/dao"
-	"bookstore/cmd/model"
 	"encoding/json"
 	"html/template"
 	"log"
@@ -10,6 +8,9 @@ import (
 	"strconv"
 
 	"github.com/google/uuid"
+
+	"bookstore/cmd/dao"
+	"bookstore/cmd/model"
 )
 
 func AddToCartHandler(w http.ResponseWriter, r *http.Request) {

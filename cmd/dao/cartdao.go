@@ -1,10 +1,11 @@
 package dao
 
 import (
-	"bookstore/cmd/model"
-	"bookstore/cmd/utils"
 	"database/sql"
 	"fmt"
+
+	"bookstore/cmd/model"
+	"bookstore/cmd/utils"
 )
 
 func AddCart(cart *model.Cart) error {
